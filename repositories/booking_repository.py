@@ -24,3 +24,16 @@ def select_all():
         booking = Booking(result['member_id'] , result['activity_id'] , result['id'])
         bookings.append(booking)
     return bookings
+
+
+
+# Function to delete a specific booking
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
+# Function to delete all bookings
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)

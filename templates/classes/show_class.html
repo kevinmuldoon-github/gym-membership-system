@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Class Information for {{activity.type}}</h1>
+
+<ul>
+    <li>ID = {{activity.id}}</li>
+    <li>Type of Activity: {{activity.type}}</li>
+    <li>Date & Time: {{activity.date_time}}</li>
+</ul>
+
+
+{% endblock %}

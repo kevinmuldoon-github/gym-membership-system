@@ -41,3 +41,15 @@ def select_all():
         activity = Activity(result['type'] , result['date_time'] , result['id'])
         activities.append(activity)
     return activities
+
+
+# Function to delete a specific activity
+def delete(id):
+    sql = "DELETE FROM activities WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
+# Function to delete all activities
+def delete_all():
+    sql = "DELETE FROM activities"
+    run_sql(sql)
