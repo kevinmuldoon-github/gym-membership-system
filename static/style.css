@@ -1,14 +1,15 @@
 
-.form-button {
+.form-button, .form-button a {
 background-color: white;;
 color:blue;
 border: none;
 padding: 12px 16px;
 font-size: 16px;
 cursor: pointer;
+text-decoration: none;
 }
 
-.form-button:hover{
+.form-button:hover, .form-button:hover a{
     background-color:white;
     color:red;
 }

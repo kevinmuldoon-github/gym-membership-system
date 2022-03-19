@@ -22,27 +22,34 @@ def show_member(id):
 
 # Display page and form to edit a member's information
 @members_blueprint.route("/members/<id>/edit_member" , methods = ['GET'])
-def edit_member(id):
-
+def show_edit_member_form(id):
     member = member_repository.select(id) # Find member information
-
     return render_template('/members/edit_member.html' , title = 'Edit a Member' , member = member)
 
-# Function to delete a member
-@members_blueprint.route("/members/<id>/delete" , methods = ['POST'])
-def delete_member(id):
-    member_repository.delete(id)
-    return redirect ('/members') # Redirect user back to the members page
+# Function to edit a member with updated information
+@members_blueprint.route('/members/<id>/edit' , methods = ['POST'] )
+def edit_member(id):
+    name = request.form['name']
+    member = Member(name, id)
+    member_repository.edit_member(member)
+    return redirect ('/members') # Redirect to main members page
 
 # Display new member page
 @members_blueprint.route("/members/new_member", methods = ['GET'])
 def new_member():
     return render_template("members/new_member.html" , title = "Add a New Member to the Gym")
 
-# Function to retrieve member information and write new member to database
+# Function to retrieve member information and write/create new member to database
 @members_blueprint.route("/members" , methods = ['POST'])
 def create_member():
     name = request.form['name']
     member = Member(name) # Create member object
     member_repository.create_member(member) # Add member to database
     return redirect ('/members') # Redirect user to main members page
+
+
+# Function to delete a member
+@members_blueprint.route("/members/<id>/delete" , methods = ['POST'])
+def delete_member(id):
+    member_repository.delete(id)
+    return redirect ('/members') # Redirect user back to the members page

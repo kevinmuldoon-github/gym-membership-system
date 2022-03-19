@@ -1,16 +1,16 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Edit Member Information for {{member.name}}</h1>
+<h1>Edit Member Information of {{member.name}}</h1>
 
-<form action="/members" method="post">
+<form action="/members/{{member.id}}/edit" method="post">
 
     <div>
         <label for="name">Name of Member:</label>
         <input type="text" id="name" name="name" value="{{member.name}}" required autofocus>
     </div>
     
-    <input type="submit" value="Update Member" />
+    <button type="submit">Update Member</button>
     </form>
 
 
