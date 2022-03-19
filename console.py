@@ -14,12 +14,11 @@ member_repository.create_member(member_2)
 member_3 = Member("Ronnie Coleman")
 member_repository.create_member(member_3)
 
-
-activity_1 = Activity("Boxing", "Monday at 7pm")
+activity_1 = Activity("Boxing", "4 July", "7pm")
 activity_repository.create_activity(activity_1)
-activity_2 = Activity("Swimming", "Tuesday at 12pm")
+activity_2 = Activity("Swimming", "25 December" , "12pm")
 activity_repository.create_activity(activity_2)
-activity_3 = Activity("Yoga", "Saturday at 9am")
+activity_3 = Activity("Yoga", "01 January" ,"9am")
 activity_repository.create_activity(activity_3)
 
 booking_1 = Booking (member_1, activity_1)

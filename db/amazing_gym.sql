@@ -10,7 +10,8 @@ CREATE TABLE members (
 CREATE TABLE activities(
     id SERIAL PRIMARY KEY,
     type VARCHAR(255),
-    date_time VARCHAR(255)
+    date VARCHAR(255),
+    time VARCHAR(255)
 );
 
 CREATE TABLE bookings(

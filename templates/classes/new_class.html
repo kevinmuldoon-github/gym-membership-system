@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Add a New Class to the Gym</h1>
+
+<form action="/classes" method="post">
+
+<div>
+    <label for="type">Type of activity:</label>
+    <input type="text" id="type" name="type" placeholder="Enter Activity Type" required autofocus>
+</div>
+
+<div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" placeholder="Enter Date" required>
+</div>
+
+<div>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" placeholder="Enter Time" min="06:30" max="22:00" required>
+    <span>Classes can be booked from 6:30am to 10:00pm (Gym closes at 11pm)</span>
+</div> 
+
+<input type="submit" value="Add Class to Gym" />
+</form>
+
+
+{% endblock %}

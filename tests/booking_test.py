@@ -11,6 +11,6 @@ class TestBooking(unittest.TestCase):
         self.booking_3 = Booking (3, 3)
     
     def test_booking_has_member_id(self):
-        self.assertEqual(1,self.booking_1.member_id)
-        self.assertEqual(2,self.booking_2.member_id)
-        self.assertEqual(3,self.booking_3.member_id)
+        self.assertEqual(1,self.booking_1.member)
+        self.assertEqual(2,self.booking_2.member)
+        self.assertEqual(3,self.booking_3.member)

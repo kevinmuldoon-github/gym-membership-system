@@ -1,7 +1,11 @@
 # Define the activity class for gym classes
 
+from sqlite3 import DateFromTicks
+
+
 class Activity:
-    def __init__(self, type, date_time, id = None):
+    def __init__(self, type, date,time, id = None):
         self.type = type
-        self.date_time = date_time
+        self.date = date
+        self.time = time
         self.id = id
