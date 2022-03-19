@@ -24,10 +24,10 @@ def select(id):
     member = None
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
 
     if result is not None:
-        member = Member(result['name'], result[id])
+        member = Member(result['name'], result['id'])
     return member
 
 # Function to select all members. Useful for showing all members in forms etc
@@ -41,3 +41,13 @@ def select_all():
         members.append(member)
     return members
 
+# Function to delete a specific gym member
+def delete(id):
+    sql = "DELETE FROM members WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
+# Function to delete all members
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)

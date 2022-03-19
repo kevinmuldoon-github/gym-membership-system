@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Available Classes</h1>
+
+<table>
+            {% for activity in activities %}
+            <tr>
+                <td>{{activity.type}}</td>
+                <td>{{activity.date_time}}</td>
+            </tr>
+            {% endfor %}
+
+</table>
+
+
+{% endblock %}

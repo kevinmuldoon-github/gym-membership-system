@@ -13,3 +13,18 @@ member_2 = Member("Arnold Schwarzenegger")
 member_repository.create_member(member_2)
 member_3 = Member("Ronnie Coleman")
 member_repository.create_member(member_3)
+
+
+activity_1 = Activity("Boxing", "Monday at 7pm")
+activity_repository.create_activity(activity_1)
+activity_2 = Activity("Swimming", "Tuesday at 12pm")
+activity_repository.create_activity(activity_2)
+activity_3 = Activity("Yoga", "Saturday at 9am")
+activity_repository.create_activity(activity_3)
+
+booking_1 = Booking (member_1, activity_1)
+booking_repository.create_booking(booking_1)
+booking_2 = Booking (member_2, activity_2)
+booking_repository.create_booking(booking_2)
+booking_3 = Booking (member_3, activity_3)
+booking_repository.create_booking(booking_3)

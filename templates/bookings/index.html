@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Gym Bookings</h1>
+
+<table>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{booking.id}}</td>
+
+            </tr>
+            {% endfor %}
+
+</table>
+
+Need to work out how to correctly show member and activity information - possibly using new functions!
+
+
+{% endblock %}
