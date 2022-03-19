@@ -10,7 +10,7 @@ CREATE TABLE members (
 CREATE TABLE activities(
     id SERIAL PRIMARY KEY,
     type VARCHAR(255),
-    date VARCHAR(255),
+    date DATE,
     time VARCHAR(255)
 );
 

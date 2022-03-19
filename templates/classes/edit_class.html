@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Edit Class Information of {{activity.type}}</h1>
+
+<form action="/classes/{{activity.id}}/edit" method="post">
+
+    <div>
+        <label for="type">Type of Activity:</label>
+        <input type="text" id="type" name="type" value="{{activity.type}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value="{{activity.date}}" required>
+    </div>
+    
+    <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" value="{{activity.time" min="06:30" max="22:00" required>
+        <span>Classes can be booked from 6:30am to 10:00pm (Gym closes at 11pm)</span>
+    </div> 
+    
+    <button type="submit">Update Class</button>
+    </form>
+
+
+{% endblock %}

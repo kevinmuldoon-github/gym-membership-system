@@ -5,6 +5,7 @@ from flask import Blueprint
 from models.activity import Activity
 
 import repositories.activity_repository as activity_repository
+import repositories.date_repository as date_repository
 
 activities_blueprint = Blueprint("classes", __name__)
 
@@ -37,6 +38,7 @@ def create_activity():
     type = request.form['type']
     date = request.form['date']
     time = request.form['time']
+
     activity = Activity(type, date, time) # Create activity object
     activity_repository.create_activity(activity) # Add new activity to database
     return redirect ('/classes') # Redirect user to main classes page
