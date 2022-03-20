@@ -140,6 +140,28 @@ tr td:first-child{background-color: #36c;color:white;}
 tr td:first-child a{color:white;}
 tr td:first-child a:hover{color:yellow;}
 
+/* Form Fields */
+
+
+/* Form Submit Button */
+
+input[type=submit] {
+    margin-top:15px;
+    padding: 15px;
+    font-size:18px;
+    background:#36c; 
+    color:white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+input[type=submit]:hover {
+    background:rgb(29, 77, 173); 
+    color:yellow;
+}
+
 /* View, Edit and Delete Buttons */
 
 .index-button, .index-button a {

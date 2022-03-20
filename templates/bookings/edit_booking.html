@@ -3,14 +3,13 @@
 {% block content %}
 <h1>Edit Booking Information of Booking Number {{booking.id}}</h1>
 
-{{booking.member.id}}
 <form action="/bookings/{{booking.id}}/edit" method="post">
 
     <div>
         <label for="member_id">Select Member:</label>
         <select id="member_id" name="member_id">
-            {% for member in members %}
-            <option value="{{member.id}}" {% if booking.member.id == member.id %}selected{% endif %}>
+            {% for row in members %}
+            <option value="{{row.id}}" {% if member.id == row.id %}selected{% endif %}>
                 {{member.name}}</option>
             {% endfor %}
         </select>
@@ -19,8 +18,8 @@
     <div>
         <label for="activity_id">Select Class:</label>
         <select id="activity_id" name="activity_id">
-            {% for activity in activities %}
-            <option value="{{activity.id}}" {% if booking.activity.id == activity.id %}selected{% endif %}>
+            {% for row in activities %}
+            <option value="{{row.id}}" {% if activity.id == row.id %}selected{% endif %}>
                 {{activity.type}} at {{activity.time}} on {{activity.date}}</option>
             {% endfor %}
         </select>

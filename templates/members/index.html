@@ -22,14 +22,14 @@
         <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
         <td><a href="/members/{{member.id}}">{{member.name}}</a></td>
         <td>
-            {% if member.premium == True%}
+            {% if member.premium == True %}
                 Premium
             {% else %}
                 Standard
             {% endif %}
         </td>
         <td>
-            {% if member.deactivated == True%}
+            {% if member.deactivated == True %}
             Decactivated
             {% else %}
             Active
