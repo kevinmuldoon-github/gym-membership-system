@@ -1,5 +1,17 @@
 {% extends 'base.html'%}
 
 {% block content %}
-This is going to be the website site map
+<h1>Amazing Gym Site Map</h1>
+<p>This site map lists all available pages in the Amazing Gym Management System.</p>
+
+<ul>
+    <li><a href="/">Home Page</a> - The home page links to the main areas of this website.</li>
+    <li><a href="/members">Members</a> - A list of all gym members</li>
+    <li><a href="/members/new_member">Add a New Member</a> - A form to add a new member to the gym database</li>
+    <li><a href="/classes">Classes</a> - A list of all available classes at the gym</li>
+    <li><a href="/classes/new_class">Add a New Class</a> - A Form to add a new type of class to the gym database</li>
+    <li><a href="/bookings">Bookings</a> - A list of all bookings made by members</li>
+    <li><a href="/bookings/new_booking">Create a New Booking</a> - Add a new booking to the gym database</li>
+</ul>
+
 {% endblock %}

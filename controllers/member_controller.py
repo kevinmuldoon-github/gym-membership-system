@@ -18,7 +18,9 @@ def members():
 @members_blueprint.route("/members/<id>", methods=['GET'])
 def show_member(id):
     member = member_repository.select(id)
-    return render_template('/members/show_member.html' , title = 'Member Information' , member=member)
+    activities = member_repository.find_activities_for_member(id)
+    number_of_activities = len(activities)
+    return render_template('/members/show_member.html' , title = 'Member Information' , member=member, activities = activities, number_of_activities= number_of_activities)
 
 # Display page and form to edit a member's information
 @members_blueprint.route("/members/<id>/edit_member" , methods = ['GET'])

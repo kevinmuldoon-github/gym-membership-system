@@ -3,16 +3,31 @@
 {% block content %}
 <h1>Booking Information for Booking Number {{booking.id}}</h1>
 
-<ul>
-    <li>ID = {{booking.id}}</li>
-    <li>Member Name: <a href="/members/{{member.id}}">{{member.name}}</a></li>
-    <li>Type of Activity: <a href="/classes/{{activity.id}}">{{activity.type}}</a></li>
-    <li>Time: {{activity.time}}</li>
-    <li>Date: {{activity.date}}</li>
-</ul>
+<table class="small">
+    <tr>
+        <td><strong>Booking ID</strong></td>
+        <td>{{booking.id}}</td>
+    </tr>
+    <tr>
+        <td><strong>Member Name</strong></td>
+        <td><a href="/members/{{member.id}}">{{member.name}}</a></td>
+    </tr>
+    <tr>
+        <td><strong>Type of Activity</strong></td>
+        <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+    </tr>
+    <tr>
+        <td><strong>Time</strong></td>
+        <td>{{activity.time}}</td>
+    </tr>
+    <tr>
+        <td><strong>Date</strong></td>
+        <td>{{activity.date}}</td>
+    </tr>
+</table>
 
 
-<a href="/bookings/{{booking.id}}/edit_booking">Edit This Booking</a>
+<p><a href="/bookings/{{booking.id}}/edit_booking">Edit This Booking</a></p>
 
 
 {% endblock %}

@@ -12,12 +12,13 @@ body a:hover{color:red;}
 
 /* Header */
 header {
-    background: url('/static/images/background-gym-equipment.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-color: white;
-    border-top:4px solid black;
+    display:flex;
+    flex-wrap:wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color: rgba(150, 150, 150, 0.144);
+    border-top:5px solid black;
+    border-bottom:5px solid black;
     margin:0;
 }
 
@@ -34,12 +35,9 @@ header {
     font-size:50px;
 }
 #logo a{text-decoration: none;}
-#logo a:hover h2{color:white;}
+#logo img:hover{opacity:80%}
 
 /* Navigation Menu */
-nav {
-    padding-bottom:10px;
-}
 
 #main-menu{
     list-style: none;
@@ -58,6 +56,7 @@ nav {
 }
 
 #main-menu li a:hover{
+    background-color: #36c;
     color:yellow;
 }
 
@@ -111,6 +110,10 @@ table {
     width:100%;
 }
 
+.small{
+    width:auto;
+}
+
 thead th {
     background-color: #333;
     color:white;
@@ -119,8 +122,11 @@ thead th {
 
 th, td {
     border: 1px solid black;
-    padding: 10px 15px;
+    padding: 8px 10px;
+    text-align:center
 }
+
+th a, td a {text-decoration: none;}
 
 tbody tr:nth-child(odd) {
     background-color: #fff;
@@ -129,6 +135,10 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
     background-color: rgb(250, 247, 206);
 }
+
+tr td:first-child{background-color: #36c;color:white;}
+tr td:first-child a{color:white;}
+tr td:first-child a:hover{color:yellow;}
 
 /* View, Edit and Delete Buttons */
 
@@ -149,7 +159,7 @@ text-decoration: none;
 /* Footer */
 
 footer {
-    background-color: black;
+    background-color: #36c;
     padding:15px;
     text-align: center;
 }

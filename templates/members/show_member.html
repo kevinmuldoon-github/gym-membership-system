@@ -3,14 +3,57 @@
 {% block content %}
 <h1>Member Information for {{member.name}}</h1>
 
+<table class="small">
+    <tr>
+        <td><strong>Member ID</strong></td>
+        <td>{{member.id}}</td>
+    </tr>
+    <tr>
+        <td><strong>Member Name</strong></td>
+        <td>{{member.name}}</td>
+    </tr>
+</table>
 
+<p><a href="/members/{{member.id}}/edit_member">Edit This Member</a></p>
 
-<ul>
-    <li>Member ID = {{member.id}}</li>
-    <li>Member Name: {{member.name}}</li>
-</ul>
+{% if number_of_activities == 0 %}
+    <h2>{{member.name}} is Not Currently Booked Into Any Classes</h2>
+{% elif number_of_activities == 1 %}
+    <h2>{{member.name}} is Booked Into One Class</h2>
+{% else %}
+    <h2>{{member.name}} is Booked Into {{number_of_activities}} Classes</h2>
+{% endif %}
 
-<a href="/members/{{member.id}}/edit_member">Edit This Member</a>
+{% if number_of_activities !=0 %}
+<table>
+    <thead>
+        <tr>
+            <th><strong>Class ID</strong></th>
+            <th><strong>Type of Activity</strong></th>
+            <th><strong>Time</strong></th>
+            <th><strong>Date</strong></th>
+            <th colspan="3"><strong>Class Management</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for activity in activities %}
+    <tr> 
+        <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
+        <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+        <td>{{activity.time}}</td>
+        <td>{{activity.date}}</td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+        <td>
+            <form action="/classes/{{activity.id}}/delete" method="POST">
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+            </form>
+        </td>
+    </tr>  
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
 
 
 {% endblock %}
