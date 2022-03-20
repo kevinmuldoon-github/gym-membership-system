@@ -1,18 +1,33 @@
 {% extends 'base.html'%}
 
 {% block content %}
-This is going to be the gym home page
 
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/members">Members</a></li>
-    <li><a href="/members/new_member">Add New Member</a></li>
-    <li><a href="/classes">Classes</a></li>
-    <li><a href="/classes/new_class">Add New Class</a></li>
-    <li><a href="/bookings">Bookings</a></li>
-    <li><a href="/bookings/new_booking">Book Member into a Class</a></li>
-    <li><a href="/site-map">Site Map</a></li>
-    </ul>
+<div id="home-grid">
+    <div class="box">
+        <a href="/members"><img src="/static/images/home-boxes/members.jpeg" alt="View Members" width="300" height="200" /></a><br />
+        <a href="/members">Members</a>
+    </div>
+    <div class="box">
+        <a href="/classes"><img src="/static/images/home-boxes/classes.jpeg" alt="View Classes" width="300" height="200" /></a><br />
+        <a href="/classes">Classes</a>
+    </div>
+    <div class="box">
+        <a href="/bookings"><img src="/static/images/home-boxes/bookings.jpeg" alt="View Bookings" width="300" height="200" /></a><br />
+        <a href="/bookings">Bookings</a>
+    </div>
+    <div class="box">
+        <a href="/bookings/new_member"><img src="/static/images/home-boxes/add-member.jpeg" alt="Add New Member" width="300" height="200" /></a><br />
+        <a href="/members/new_member">Add New Member</a>
+    </div>
+    <div class="box">
+        <a href="/bookings/new-class"><img src="/static/images/home-boxes/add-class.jpeg" alt="Add New Class" width="300" height="200" /></a><br />
+        <a href="/classes/new_class">Add New Class</a>
+    </div>
+    <div class="box">
+        <a href="/bookings/new-booking"><img src="/static/images/home-boxes/create-booking.jpeg" alt="Create a Booking" width="300" height="200" /></a><br />
+        <a href="/bookings/new_booking">Create a Booking</a>
+    </div>
+</div>
 
 
 {% endblock %}

@@ -5,16 +5,19 @@
 <h1>Gym Bookings</h1>
 
 <table>
-    <tr>
-        <th>Booking ID</th>
-        <th>Member Name</th>
-        <th>Type of Class</th>
-        <th>Class Date</th>
-        <th>Class Time</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Member Name</th>
+            <th>Type of Class</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
     {% for booking in bookings %}
     <tr>
         <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
@@ -32,7 +35,7 @@
         </td>
     </tr>
     {% endfor %}
-
+    </tbody>
 </table>
 
 {% endblock %}

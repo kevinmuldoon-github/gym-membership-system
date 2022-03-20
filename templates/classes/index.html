@@ -5,33 +5,35 @@
 <h1>Available Classes</h1>
 
 <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type of Activity</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for activity in activities %}
     <tr>
-        <th>ID</th>
-        <th>Type of Activity</th>
-        <th>Time</th>
-        <th>Date</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
+        <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+        <td>{{activity.time}}</td>
+        <td>{{activity.date}}</td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+        <td>
+            <form action="/classes/{{activity.id}}/delete" method="POST">
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+                
+            </form>
+        </td>
     </tr>
-            {% for activity in activities %}
-            <tr>
-                <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
-                <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
-                <td>{{activity.time}}</td>
-                <td>{{activity.date}}</td>
-                <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
-                <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
-                <td>
-                    <form action="/classes/{{activity.id}}/delete" method="POST">
-                        <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
-                        
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-
+    {% endfor %}
+</tbody>
 </table>
-
 
 {% endblock %}
