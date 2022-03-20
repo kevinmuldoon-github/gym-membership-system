@@ -32,8 +32,10 @@ def show_edit_member_page(id):
 @members_blueprint.route('/members/<id>/edit' , methods = ['POST'] )
 def edit_member(id):
     name = request.form['name']
-    member = Member(name, id)
-    member_repository.edit_member(member)
+    premium = request.form['premium']
+    deactivated = request.form['deactivated']
+    member = Member(name, premium, deactivated, id) # Create member object
+    member_repository.edit_member(member) # Add member to database
     return redirect ('/members') # Redirect to main members page
 
 # Display new member page
@@ -45,7 +47,9 @@ def new_member_page():
 @members_blueprint.route("/members" , methods = ['POST'])
 def create_member():
     name = request.form['name']
-    member = Member(name) # Create member object
+    premium = request.form['premium']
+    deactivated = request.form['deactivated']
+    member = Member(name, premium, deactivated, id) # Create member object
     member_repository.create_member(member) # Add member to database
     return redirect ('/members') # Redirect user to main members page
 

@@ -3,7 +3,9 @@
 
 class Member:
 
-    def __init__(self, name, id = None):
+    def __init__(self, name, premium, deactivated, id = None):
         self.name = name
         self.id = id
+        self.premium = premium
+        self.deactivated = deactivated
 

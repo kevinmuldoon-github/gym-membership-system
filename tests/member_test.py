@@ -6,9 +6,9 @@ from models.member import Member
 class TestMember(unittest.TestCase):
 
     def setUp(self):
-        self.member_1 = Member("Peter La Fleur")
-        self.member_2 = Member("Arnold Schwarzenegger")
-        self.member_3 = Member("Ronnie Coleman")
+        self.member_1 = Member("Peter La Fleur", "True", "True")        
+        self.member_2 = Member("Arnold Schwarzenegger","False", "True")
+        self.member_3 = Member("Ronnie Coleman", "False", "False")
     
     def test_members_have_name(self):
         self.assertEqual("Peter La Fleur",self.member_1.name)

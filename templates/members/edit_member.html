@@ -9,6 +9,29 @@
         <label for="name">Name of Member:</label>
         <input type="text" id="name" name="name" value="{{member.name}}" required autofocus>
     </div>
+
+    <div>
+        <label for="premium">Membership Level:</label>
+        <select id="premium" name="premium">
+            <option value="False" {% if member.premium == False %} selected {% endif %}>
+                Standard
+            </option>
+            <option value="True" {% if member.premium == True %} selected {% endif %}>Premium
+                </option>
+        </select>   
+    </div>
+    
+    <div>
+        <label for="deactivated">Account Status:</label>
+        <select id="deactivated" name="deactivated">
+            <option value="False" {% if member.deactivated == False %} selected {% endif %}>
+                Active
+            </option>
+            <option value="True" {% if member.deactivated == True %} selected {% endif %}>
+                Deactivated
+            </option>
+        </select>
+    </div>
     
     <button type="submit">Update Member</button>
     </form>

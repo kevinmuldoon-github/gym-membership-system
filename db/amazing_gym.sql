@@ -4,7 +4,9 @@ DROP TABLE activities;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    premium BOOLEAN,
+    deactivated BOOLEAN
 );
 
 CREATE TABLE activities(

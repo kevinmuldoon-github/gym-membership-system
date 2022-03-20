@@ -8,12 +8,11 @@ import repositories.member_repository as member_repository
 import repositories.booking_repository as booking_repository
 import repositories.date_repository as date_repository
 
-member_1 = Member("Peter La Fleur")
+member_1 = Member("Peter La Fleur", "True", "True")
 member_repository.create_member(member_1)
-member_2 = Member("Arnold Schwarzenegger")
+member_2 = Member("Arnold Schwarzenegger","False", "True")
 member_repository.create_member(member_2)
-member_3 = Member("Ronnie Coleman")
-member_repository.create_member(member_3)
+member_3 = Member("Ronnie Coleman", "False", "False")
 
 activity_1 = Activity("Boxing", "2022-07-15", "19:00")
 activity_repository.create_activity(activity_1)

@@ -62,6 +62,6 @@ def find_members_booked_in_class(id):
     results = run_sql(sql,values)
     
     for result in results:
-        member = Member(result['name'], result['id'])
+        member = Member(result['name'] , result['premium'] , result['deactivated'], result['id'])
         members.append(member)
     return members
