@@ -6,14 +6,14 @@
 
 <table>
     <tr>
-        <td>Booking ID</td>
-        <td>Member Name</td>
-        <td>Type of Class</td>
-        <td>Class Date</td>
-        <td>Class Time</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>Booking ID</th>
+        <th>Member Name</th>
+        <th>Type of Class</th>
+        <th>Class Date</th>
+        <th>Class Time</th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
     {% for booking in bookings %}
     <tr>
@@ -22,11 +22,11 @@
         <td><a href="/classes/{{booking.activity.id}}">{{booking.activity.type}}</a></td>
         <td>{{booking.activity.time}}</td>
         <td>{{booking.activity.date}}</td>
-        <td><button class="form-button"><a href="/bookings/{{booking.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Booking</a></button></td>
-        <td><button class="form-button"><a href="/bookings/{{booking.id}}/edit_booking"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Booking</a></button></td>
+        <td><button class="index-button"><a href="/bookings/{{booking.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Booking</a></button></td>
+        <td><button class="index-button"><a href="/bookings/{{booking.id}}/edit_booking"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Booking</a></button></td>
         <td>
             <form action="/bookings/{{booking.id}}/delete" method="POST">
-                <button class="form-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete Booking</button>
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete Booking</button>
                 
             </form>
         </td>

@@ -1,5 +1,79 @@
 
-.form-button, .form-button a {
+body {
+    background: url('/static/images/background-bricks.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Header */
+header {
+    background: url('/static/images/background-dumbbells.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+    border-top:4px solid black;
+    margin:0;
+}
+
+
+/* Website Logo */
+#logo {
+    margin:15px 15px 10px 50px;
+    text-decoration: none;
+    }
+
+#logo h2{
+    color:red;
+    font-family:'Bungee Inline';
+    font-size:50px;
+}
+#logo a{text-decoration: none;}
+#logo a:hover h2{color:white;}
+
+/* Navigation Menu */
+nav {
+    padding-bottom:10px;
+}
+
+#main-menu{
+    list-style: none;
+}
+
+#main-menu li {
+    display:inline;
+    font-size:25px;
+}
+
+#main-menu li a{
+    text-decoration: none;
+    color:white;
+    background-color: black;
+    padding:20px;
+}
+
+#main-menu li a:hover{
+    color:red;
+}
+
+/* Container for main page */
+
+#container {
+    background-color: white;
+    margin:20px;
+    padding:20px;
+    border-radius: 25px;
+    color:black;
+    font-size:18px;
+}
+
+/* View, Edit and Delete Buttons */
+
+.index-button, .index-button a {
 background-color: white;;
 color:blue;
 border: none;
@@ -9,7 +83,7 @@ cursor: pointer;
 text-decoration: none;
 }
 
-.form-button:hover, .form-button:hover a{
+.index-button:hover, .index-button:hover a{
     background-color:white;
     color:red;
 }

@@ -6,13 +6,13 @@
 
 <table>
     <tr>
-        <td>ID</td>
-        <td>Type of Activity</td>
-        <td>Time</td>
-        <td>Date</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>ID</th>
+        <th>Type of Activity</th>
+        <th>Time</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
             {% for activity in activities %}
             <tr>
@@ -20,11 +20,11 @@
                 <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
                 <td>{{activity.time}}</td>
                 <td>{{activity.date}}</td>
-                <td><button class="form-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
-                <td><button class="form-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+                <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+                <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
                 <td>
                     <form action="/classes/{{activity.id}}/delete" method="POST">
-                        <button class="form-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+                        <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
                         
                     </form>
                 </td>
