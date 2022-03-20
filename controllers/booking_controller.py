@@ -13,6 +13,12 @@ bookings_blueprint = Blueprint("bookings", __name__)
 @bookings_blueprint.route("/bookings")
 def bookings():
     bookings = booking_repository.select_all()
-    activities = activity_repository.select_all()
-    members = member_repository.select_all()
-    return render_template('bookings/index.html' , title = 'Bookings' , bookings = bookings, activities = activities , members = members)
+    return render_template('bookings/index.html' , title = 'Bookings' , bookings = bookings)
+
+
+
+# Function to delete a booking
+@bookings_blueprint.route("/bookings/<id>/delete" , methods = ['POST'])
+def delete_booking(id):
+    booking_repository.delete(id)
+    return redirect ('/bookings') # Redirect user back to the main bookings page

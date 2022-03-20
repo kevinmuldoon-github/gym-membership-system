@@ -20,6 +20,21 @@ def show_activity(id):
     activity = activity_repository.select(id)
     return render_template('/classes/show_class.html' , title = 'Class Information' , activity = activity)
 
+# Display page and form to edit an activity
+@activities_blueprint.route("/classes/<id>/edit_class" , methods = ['GET'])
+def show_edit_class_form(id):
+    activity = activity_repository.select(id) # Find class information
+    return render_template('/classes/edit_class.html' , title = 'Edit a Class' , activity = activity)
+
+# Function to edit a member with updated information
+@activities_blueprint.route('/classes/<id>/edit' , methods = ['POST'] )
+def edit_activity(id):
+    type = request.form['type']
+    date = request.form['date']
+    time = request.form['time']
+    activity = Activity(type, date, time, id)
+    activity_repository.edit_activity(activity)
+    return redirect ('/classes') # Redirect to main classes page
 
 # Display new class page
 @activities_blueprint.route("/classes/new_class", methods = ['GET'])

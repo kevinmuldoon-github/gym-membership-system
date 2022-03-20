@@ -4,6 +4,9 @@ from models.booking import Booking
 from models.activity import Activity
 from models.member import Member
 
+import repositories.activity_repository as activity_repository
+import repositories.member_repository as member_repository
+
 # Function to insert a new booking to the gym database
 def create_booking(booking):   
     sql = "INSERT INTO bookings (member_id, activity_id) VALUES (%s, %s) RETURNING id"
@@ -21,7 +24,9 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        booking = Booking(result['member_id'] , result['activity_id'] , result['id'])
+        member = member_repository.select(result['member_id'])
+        activity = activity_repository.select(result['activity_id'])
+        booking = Booking(member , activity , result['id'])
         bookings.append(booking)
     return bookings
 

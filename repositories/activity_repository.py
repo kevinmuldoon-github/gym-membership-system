@@ -16,7 +16,7 @@ def create_activity(activity):
 # Function to edit/update a specific activity i.e. gym class
 def edit_activity(activity):
     sql = "UPDATE activities SET (type, date, time) = (%s, %s, %s) WHERE id = %s"
-    values = [activity.type , activity.date, activity.time]
+    values = [activity.type , activity.date, activity.time, activity.id]
     run_sql(sql,values)
 
 # Function to show a select/show a specific activity

@@ -17,7 +17,7 @@
                 <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
                 <td>{{activity.date}}</td>
                 <td>{{activity.time}}</td>
-                <td></td>
+                <td><button class="form-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
                 <td>
                     <form action="/classes/{{activity.id}}/delete" method="POST">
                         <button class="form-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
