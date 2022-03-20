@@ -53,3 +53,15 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM activities"
     run_sql(sql)
+
+# Function to find members booked into a specific class
+def find_members_booked_in_class(id):
+    members = []
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
+    values = [id]
+    results = run_sql(sql,values)
+    
+    for result in results:
+        member = Member(result['name'], result['id'])
+        members.append(member)
+    return members

@@ -6,6 +6,7 @@ from models.member import Member
 
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
+import repositories.activity_repository as activity_repository
 
 # Function to insert a new booking to the gym database
 def create_booking(booking):   
@@ -33,7 +34,6 @@ def select(id):
         booking = Booking(result['member_id'], result['activity_id'], result['id'])
     return booking
 
-
 # Function to select all bookings
 def select_all():
     bookings = []
@@ -46,8 +46,6 @@ def select_all():
         booking = Booking(member , activity , result['id'])
         bookings.append(booking)
     return bookings
-
-
 
 # Function to delete a specific booking
 def delete(id):

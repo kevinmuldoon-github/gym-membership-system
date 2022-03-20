@@ -11,6 +11,14 @@
 
 </ul>
 
+<h2>Members Booked Into This Class</h2>
+
+<ul>
+{% for member in members %}
+    <li><a href="/members/{{member.id}}">{{member.name}}</a></li>
+{% endfor %}
+</ul>
+
 <a href="/classes/{{activity.id}}/edit_class">Edit This Class</a>
 
 

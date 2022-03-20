@@ -9,11 +9,13 @@
         <td>Name</td>
         <td></td>
         <td></td>
+        <td></td>
     </tr>
     {% for member in members %}
     <tr>
-        <td>{{member.id}}</td>
+        <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
         <td><a href="/members/{{member.id}}">{{member.name}}</a></td>
+        <td><button class="form-button"><a href="/members/{{member.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Member</a></button></td>
         <td><button class="form-button"><a href="/members/{{member.id}}/edit_member"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Member</a></button></td>
         <td>
             <form action="/members/{{member.id}}/delete" method="POST">
