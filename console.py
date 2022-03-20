@@ -13,6 +13,7 @@ member_repository.create_member(member_1)
 member_2 = Member("Arnold Schwarzenegger","False", "True")
 member_repository.create_member(member_2)
 member_3 = Member("Ronnie Coleman", "False", "False")
+member_repository.create_member(member_3)
 
 activity_1 = Activity("Boxing", "2022-07-15", "19:00")
 activity_repository.create_activity(activity_1)
@@ -28,6 +29,7 @@ booking_repository.create_booking(booking_2)
 booking_3 = Booking (member_3, activity_3)
 booking_repository.create_booking(booking_3)
 
-my_date = "2022-12-25"
-date = date_repository.convert_date(my_date) # Convert date format
-print(date)
+# Date Format Tests
+# my_date = "2022-12-25"
+# date = date_repository.convert_date(my_date) # Convert date format
+# print(date)
