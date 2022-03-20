@@ -12,7 +12,7 @@ activities_blueprint = Blueprint("classes", __name__)
 @activities_blueprint.route("/classes")
 def activities():
     activities = activity_repository.select_all()
-    return render_template('classes/index.html' , title = 'Gym Classes' , activities = activities)
+    return render_template('/classes/index.html' , title = 'Gym Classes' , activities = activities)
 
 # Function to show activity information using member id
 @activities_blueprint.route("/classes/<id>", methods=['GET'])
@@ -22,7 +22,7 @@ def show_activity(id):
 
 # Display page and form to edit an activity
 @activities_blueprint.route("/classes/<id>/edit_class" , methods = ['GET'])
-def show_edit_class_form(id):
+def show_edit_class_page(id):
     activity = activity_repository.select(id) # Find class information
     return render_template('/classes/edit_class.html' , title = 'Edit a Class' , activity = activity)
 
@@ -38,8 +38,8 @@ def edit_activity(id):
 
 # Display new class page
 @activities_blueprint.route("/classes/new_class", methods = ['GET'])
-def new_class():
-    return render_template("classes/new_class.html" , title = "Add a New Class to the Gym")
+def new_class_page():
+    return render_template("/classes/new_class.html" , title = "Add a New Class to the Gym")
 
 # Function to delete an activity
 @activities_blueprint.route("/classes/<id>/delete" , methods = ['POST'])

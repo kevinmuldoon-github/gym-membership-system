@@ -16,6 +16,23 @@ def create_booking(booking):
     booking.id = results[0]['id']
     return booking
 
+# Function to edit/update a specific booking
+def edit_booking(booking):
+    sql = "UPDATE bookings SET (member_id, activity_id) = (%s, %s) WHERE id = %s"
+    values = [booking.member.id , booking.activity.id, booking.id]
+    run_sql(sql,values)
+
+# Function to show a select/show a specific booking
+def select(id):
+    booking = None
+    sql = "SELECT * FROM bookings WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        booking = Booking(result['member_id'], result['activity_id'], result['id'])
+    return booking
+
 
 # Function to select all bookings
 def select_all():

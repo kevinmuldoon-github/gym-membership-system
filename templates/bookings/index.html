@@ -16,11 +16,11 @@
     </tr>
     {% for booking in bookings %}
     <tr>
-        <td>{{booking.id}}</td>
+        <td><a href="/bookings/{{booking.id}}">{{booking.id}}</a></td>
         <td><a href="/members/{{booking.member.id}}">{{booking.member.name}}</a></td>
         <td><a href="/classes/{{booking.activity.id}}">{{booking.activity.type}}</a></td>
-        <td>{{booking.activity.date}}</td>
         <td>{{booking.activity.time}}</td>
+        <td>{{booking.activity.date}}</td>
         <td><button class="form-button"><a href="/bookings/{{booking.id}}/edit_booking"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Booking</a></button></td>
         <td>
             <form action="/bookings/{{booking.id}}/delete" method="POST">

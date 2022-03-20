@@ -3,10 +3,14 @@
 {% block content %}
 <h1>Member Information for {{member.name}}</h1>
 
+
+
 <ul>
     <li>Member ID = {{member.id}}</li>
     <li>Member Name: {{member.name}}</li>
 </ul>
+
+<a href="/members/{{member.id}}/edit_member">Edit This Member</a>
 
 
 {% endblock %}

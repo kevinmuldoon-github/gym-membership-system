@@ -12,7 +12,7 @@ members_blueprint = Blueprint("members", __name__)
 @members_blueprint.route("/members")
 def members():
     members = member_repository.select_all()
-    return render_template('members/index.html' , title = 'Gym Members' , members = members)
+    return render_template('/members/index.html' , title = 'Gym Members' , members = members)
 
 # Function to show member information using member id
 @members_blueprint.route("/members/<id>", methods=['GET'])
@@ -22,7 +22,7 @@ def show_member(id):
 
 # Display page and form to edit a member's information
 @members_blueprint.route("/members/<id>/edit_member" , methods = ['GET'])
-def show_edit_member_form(id):
+def show_edit_member_page(id):
     member = member_repository.select(id) # Find member information
     return render_template('/members/edit_member.html' , title = 'Edit a Member' , member = member)
 
@@ -36,7 +36,7 @@ def edit_member(id):
 
 # Display new member page
 @members_blueprint.route("/members/new_member", methods = ['GET'])
-def new_member():
+def new_member_page():
     return render_template("members/new_member.html" , title = "Add a New Member to the Gym")
 
 # Function to retrieve member information and write/create new member to database

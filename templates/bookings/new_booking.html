@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Book a Member Into a Class</h1>
+
+<form action="/bookings" method="post">
+
+<div>
+    <label for="member_id">Select Member:</label>
+    <select id="member_id" name="member_id">
+        {% for member in members %}
+        <option value="{{member.id}}">{{member.name}}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div>
+    <label for="activity_id">Select Class:</label>
+    <select id="activity_id" name="activity_id">
+        {% for activity in activities %}
+        <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<input type="submit" value="Create Booking" />
+</form>
+
+
+{% endblock %}
