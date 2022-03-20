@@ -40,6 +40,18 @@ def select_all():
         members.append(member)
     return members
 
+# Function to select active members
+def select_active_members():
+    members = []
+    sql = "SELECT * FROM members WHERE deactivated = %s"
+    values = ['False']
+    results = run_sql(sql, values)
+
+    for result in results:
+        member = Member(result['name'] , result['premium'] , result['deactivated'], result['id'])
+        members.append(member)
+    return members
+
 # Function to delete a specific gym member
 def delete(id):
     sql = "DELETE FROM members WHERE id = %s"

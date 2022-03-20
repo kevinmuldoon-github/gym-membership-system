@@ -29,7 +29,7 @@ def show_booking(id):
 def show_edit_booking_page(id):
     booking = booking_repository.select(id) # Find booking information
     member = member_repository.select(booking.member)
-    members = member_repository.select_all()
+    members = member_repository.select_active_members()
     activity = activity_repository.select(booking.activity)
     activities = activity_repository.select_all()
     return render_template('/bookings/edit_booking.html' , title = 'Edit a Booking' , booking = booking, member = member, members = members, activity = activity, activities = activities)
@@ -49,7 +49,7 @@ def edit_booking(id):
 # Display new booking page
 @bookings_blueprint.route("/bookings/new_booking", methods = ['GET'])
 def new_booking_page():
-    members = member_repository.select_all()
+    members = member_repository.select_active_members()
     activities = activity_repository.select_all()
     return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , activities = activities)
 
