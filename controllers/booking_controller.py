@@ -49,7 +49,7 @@ def edit_booking(id):
     original_booking = booking_repository.select(id)
     member_id = request.form['member_id']
     member = member_repository.select(member_id)
-    activity = activity_repository.select(original_booking.activity_id)
+    activity = activity_repository.select(original_booking.activity)
     booking = Booking (member, activity, id) # Create booking object
     booking_repository.edit_booking(booking) # Edit booking in database
     return redirect ('/bookings') # Redirect to main bookings page
