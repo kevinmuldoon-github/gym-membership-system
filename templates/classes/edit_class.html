@@ -20,8 +20,13 @@
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" value="{{activity.date}}" required>
     </div>
+
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" value="{{activity.capacity}}" required  min="1" max="30">
+    </div>
     
-    <button type="submit">Update Class</button>
+    <input type="submit" value="Update Class" />
     </form>
 
 

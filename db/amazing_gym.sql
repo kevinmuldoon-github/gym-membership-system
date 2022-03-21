@@ -13,7 +13,8 @@ CREATE TABLE activities(
     id SERIAL PRIMARY KEY,
     type VARCHAR(255),
     date DATE,
-    time VARCHAR(255)
+    time VARCHAR(255),
+    capacity INT
 );
 
 CREATE TABLE bookings(

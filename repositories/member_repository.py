@@ -71,6 +71,6 @@ def find_activities_for_member(id):
     results = run_sql(sql,values)
     
     for result in results:
-        activity = Activity(result['type'], result['date'], result['time'] , result['id'])
+        activity = Activity(result['type'], result['date'], result['time'] , result['capacity'] , result['id'])
         activities.append(activity)
     return activities

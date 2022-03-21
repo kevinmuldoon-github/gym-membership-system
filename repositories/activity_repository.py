@@ -6,8 +6,8 @@ from models.booking import Booking
 
 # Function to insert a new activity/class to the gym database
 def create_activity(activity):   
-    sql = "INSERT INTO activities (type, date, time) VALUES (%s, %s, %s) RETURNING id"
-    values = [activity.type , activity.date, activity.time]
+    sql = "INSERT INTO activities (type, date, time, capacity) VALUES (%s, %s, %s, %s) RETURNING id"
+    values = [activity.type , activity.date, activity.time, activity.capacity]
     results = run_sql(sql,values)
 
     activity.id = results[0]['id']
@@ -15,8 +15,8 @@ def create_activity(activity):
 
 # Function to edit/update a specific activity i.e. gym class
 def edit_activity(activity):
-    sql = "UPDATE activities SET (type, date, time) = (%s, %s, %s) WHERE id = %s"
-    values = [activity.type , activity.date, activity.time, activity.id]
+    sql = "UPDATE activities SET (type, date, time, capacity) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [activity.type , activity.date, activity.time, activity.capacity, activity.id]
     run_sql(sql,values)
 
 # Function to show a select/show a specific activity
@@ -27,7 +27,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
+        activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'],  result['id'])
     return activity
 
 # # Function to find off-peak activities
@@ -41,7 +41,7 @@ def select_off_peak_activities():
         time_list = result['time'].split(":")
         time_number = int(time_list[0])
         if time_number >10 and time_number < 16:
-            activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
             activities.append(activity)
     return activities
 
@@ -53,7 +53,7 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
+        activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
         activities.append(activity)
     return activities
 
