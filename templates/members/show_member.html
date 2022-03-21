@@ -12,6 +12,26 @@
         <td><strong>Member Name</strong></td>
         <td>{{member.name}}</td>
     </tr>
+    <tr>
+        <td><strong>Membership Level</strong></td>
+        <td>
+            {% if member.premium == True %}
+                Premium
+            {% else %}
+                Standard
+            {% endif %}</td>
+    </tr>
+    <tr>
+        <td><strong>Account Status</strong></td>
+        <td>
+            {% if member.deactivated == True %}
+                Decactivated
+            {% else %}
+                Active
+            {% endif %}
+
+        </td>
+    </tr>
 </table>
 
 <p><a href="/members/{{member.id}}/edit_member">Edit This Member</a></p>

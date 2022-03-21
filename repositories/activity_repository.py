@@ -30,21 +30,69 @@ def select(id):
         activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'],  result['id'])
     return activity
 
-# # Function to find off-peak activities
-def select_off_peak_activities():
+# Function to find off-peak activities with spaces
+def select_off_peak_activities_with_spaces():
     activities = []
     sql = "SELECT * FROM activities"
     results = run_sql(sql)
 
     for result in results:
-
+        members = find_members_booked_in_class(result['id'])
+        enrolled = len(members)
+        capacity = result['capacity']
         time_list = result['time'].split(":")
         time_number = int(time_list[0])
-        if time_number >10 and time_number < 16:
+        if time_number >10 and time_number < 16 and enrolled < capacity:
             activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
             activities.append(activity)
     return activities
 
+# Function to find off-peak activities with spaces
+def select_off_peak_activities_with_no_spaces():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for result in results:
+        members = find_members_booked_in_class(result['id'])
+        enrolled = len(members)
+        capacity = result['capacity']
+        time_list = result['time'].split(":")
+        time_number = int(time_list[0])
+        if time_number >10 and time_number < 16 and enrolled == capacity:
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
+            activities.append(activity)
+    return activities
+
+# Function to find all activities that have not reached capacity
+def select_activities_with_spaces():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for result in results:
+        members = find_members_booked_in_class(result['id'])
+        enrolled = len(members)
+        capacity = result['capacity']
+        if enrolled < capacity:
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
+            activities.append(activity)
+    return activities
+
+# Function to find all activities that are full
+def select_activities_with_no_spaces():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for result in results:
+        members = find_members_booked_in_class(result['id'])
+        enrolled = len(members)
+        capacity = result['capacity']
+        if enrolled == capacity:
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
+            activities.append(activity)
+    return activities
 
 # Function to select all activities
 def select_all():
@@ -56,7 +104,6 @@ def select_all():
         activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
         activities.append(activity)
     return activities
-
 
 # Function to delete a specific activity
 def delete(id):

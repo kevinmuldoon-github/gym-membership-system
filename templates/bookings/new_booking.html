@@ -5,7 +5,6 @@
 
 <p>Members can be booked into classes using the form below. Deactivated members are not available for selection. </p>
 
-
 <div class="booking-grid">
     <div class="booking-box">
         <h2>Standard Members</h2>
@@ -19,7 +18,7 @@
     <div class="booking-box">
 
     <form action="/bookings" method="post" class="submission">
-        {% if number_standard_active_members != 0 %}
+        {% if number_standard_active_members != 0 and number_off_peak_activities != 0 %}
         <div>
             <label for="member_id">Member:</label>
             <select id="member_id" name="member_id">
@@ -44,8 +43,14 @@
     </div>
 
     <input type="submit" value="Create Booking" />
+    
+    {% elif number_standard_active_members == 0 and number_off_peak_activities == 0 %}
+        No members currently have a standard membership and all off-peak classes are full.
+
+    {% elif number_standard_active_members == 0 %}
+        No members currently have a standard membership.
     {% else %}
-    No members currently have a standard membership.
+        All off-peak classes are full.
     {% endif %}
     </form>
 
@@ -55,7 +60,7 @@
     <div class="booking-box">
 
         <form action="/bookings" method="post" class="submission">
-            {% if number_premium_active_members != 0 %}
+            {% if number_premium_active_members != 0 and total_number_activities !=0 %}
         <div>
             <label for="member_id">Member:</label>
             <select id="member_id" name="member_id">
@@ -77,14 +82,57 @@
         </div>
     
         <input type="submit" value="Create Booking" />
+        {% elif number_premium_active_members == 0 and total_number_activities == 0 %}
+            No members currently have a premium membership and all classes are full.
+
+        {% elif number_premium_active_members == 0 %}
+            No members currently have a premium membership.
         {% else %}
-        No members currently have a premium membership.
+            No available classes.
         {% endif %}
         </form>
 
         </div>
+    </div>
         
+        {% if number_off_peak_activities == 0 or total_number_activities ==0 %}
 
-</div>
+        <h2>Classes at Capacity</h2>
+        <p>The following classes are fully subscribed and are not available for bookings.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type of Activity</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Capacity</th>
+                    <th colspan="3"><strong>Class Management</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for activity in activities_at_capacity %}
+            <tr>
+                <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
+                <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+                <td>{{activity.time}}</td>
+                <td>{{activity.date}}</td>
+                <td>{{activity.capacity}}</td>
+                <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+                <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+                <td>
+                    <form action="/classes/{{activity.id}}/delete" method="POST">
+                        <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+                        
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        {% endif %}
+
+
 
 {% endblock %}

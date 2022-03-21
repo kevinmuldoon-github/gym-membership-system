@@ -18,8 +18,8 @@ def activities():
 def show_activity(id):
     activity = activity_repository.select(id)
     members = activity_repository.find_members_booked_in_class(id)
-    number_of_members = len(members)
-    return render_template('/classes/show_class.html' , title = 'Class Information' , activity = activity, members = members, number_of_members = number_of_members)
+    enrolled = len(members)
+    return render_template('/classes/show_class.html' , title = 'Class Information' , activity = activity, members = members, enrolled = enrolled)
 
 # Display page and form to edit an activity
 @activities_blueprint.route("/classes/<id>/edit_class" , methods = ['GET'])

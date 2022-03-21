@@ -27,20 +27,28 @@ def show_booking(id):
 # Display page and form to edit a booking
 @bookings_blueprint.route("/bookings/<id>/edit_booking" , methods = ['GET'])
 def show_edit_booking_page(id):
+    premium_class = False
     booking = booking_repository.select(id) # Find booking information
-    member = member_repository.select(booking.member)
-    members = member_repository.select_active_members()
     activity = activity_repository.select(booking.activity)
-    activities = activity_repository.select_all()
-    return render_template('/bookings/edit_booking.html' , title = 'Edit a Booking' , booking = booking, member = member, members = members, activity = activity, activities = activities)
+    activity_time_string = activity.split(":")
+    time_number = int(activity_time_string[0])
+    if time_number >10 and time_number < 16:
+        members = member_repository.select_active_members()
+    else:
+        premium_class = True
+        members = member_repository.select_premium_active_members()
+    member = member_repository.select(booking.member)
+    
+
+    return render_template('/bookings/edit_booking.html' , title = 'Edit a Booking' , booking = booking, premium_class = premium_class ,member = member, members = members, activity = activity)
 
 # Function to edit a booking with updated information
 @bookings_blueprint.route('/bookings/<id>/edit' , methods = ['POST'] )
 def edit_booking(id):
+    original_booking = booking_repository.select(id)
     member_id = request.form['member_id']
     member = member_repository.select(member_id)
-    activity_id =request.form['activity_id']
-    activity = activity_repository.select(activity_id)
+    activity = activity_repository.select(original_booking.activity_id)
     booking = Booking (member, activity, id) # Create booking object
     booking_repository.edit_booking(booking) # Edit booking in database
     return redirect ('/bookings') # Redirect to main bookings page
@@ -52,9 +60,15 @@ def new_booking_page():
     members = member_repository.select_active_members()
     number_standard_active_members = len(member_repository.select_standard_active_members())
     number_premium_active_members = len(member_repository.select_premium_active_members())
-    off_peak_activities = activity_repository.select_off_peak_activities()
-    activities = activity_repository.select_all()
-    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , number_standard_active_members = number_standard_active_members , number_premium_active_members = number_premium_active_members ,  off_peak_activities = off_peak_activities , activities = activities)
+    off_peak_activities = activity_repository.select_off_peak_activities_with_spaces()
+    activities = activity_repository.select_activities_with_spaces()
+
+    number_off_peak_activities = len(activity_repository.select_off_peak_activities_with_spaces())
+    total_number_activities = len(activity_repository.select_activities_with_spaces())
+
+    activities_at_capacity = activity_repository.select_activities_with_no_spaces()
+
+    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , number_off_peak_activities = number_off_peak_activities , total_number_activities = total_number_activities , number_standard_active_members = number_standard_active_members , number_premium_active_members = number_premium_active_members ,  off_peak_activities = off_peak_activities , activities_at_capacity = activities_at_capacity,  activities = activities)
 
 # Function to create a new booking from a form submission
 @bookings_blueprint.route("/bookings" , methods = ['POST'])

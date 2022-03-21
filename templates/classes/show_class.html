@@ -24,16 +24,20 @@
         <td><strong>Capacity</strong></td>
         <td>{{activity.capacity}}</td>
     </tr>
+    <tr>
+        <td><strong>Enrolled</strong></td>
+        <td>{{enrolled}}</td>
+    </tr>
 </table>
 
 <p><a href="/classes/{{activity.id}}/edit_class">Edit This Class</a></p>
 
-{% if number_of_members == 0 %}
+{% if enrolled == 0 %}
     <h2>No One is Currently Booked Into This Class</h2>
-{% elif number_of_members == 1 %}
+{% elif enrolled == 1 %}
     <h2>Only One Member is Booked Into This Class</h2>
 {% else %}
-    <h2>{{number_of_members}} Members Are Booked Into This Class</h2>
+    <h2>{{enrolled}} Members Are Booked Into This Class</h2>
 {% endif %}
 
 {% if number_of_members !=0 %}
