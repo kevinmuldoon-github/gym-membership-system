@@ -42,7 +42,24 @@ def select_off_peak_activities_with_spaces():
         capacity = result['capacity']
         time_list = result['time'].split(":")
         time_number = int(time_list[0])
-        if time_number >10 and time_number < 16 and enrolled < capacity:
+        if time_number >=10 and time_number < 16 and enrolled < capacity:
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
+            activities.append(activity)
+    return activities
+
+# Function to find off-peak activities with spaces
+def select_peak_hour_activities_with_spaces():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for result in results:
+        members = find_members_booked_in_class(result['id'])
+        enrolled = len(members)
+        capacity = result['capacity']
+        time_list = result['time'].split(":")
+        time_number = int(time_list[0])
+        if (time_number < 10 or time_number >= 16) and enrolled < capacity:
             activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
             activities.append(activity)
     return activities

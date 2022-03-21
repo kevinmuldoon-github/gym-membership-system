@@ -10,8 +10,16 @@ activities_blueprint = Blueprint("classes", __name__)
 
 @activities_blueprint.route("/classes")
 def activities():
-    activities = activity_repository.select_all()
-    return render_template('/classes/index.html' , title = 'Gym Classes' , activities = activities)
+    off_peak_activities = activity_repository.select_off_peak_activities_with_spaces()
+    activities = activity_repository.select_peak_hour_activities_with_spaces()
+
+    total_off_peak_activities = len(activity_repository.select_off_peak_activities_with_spaces())
+    total_number_activities = len(activity_repository.select_activities_with_spaces())
+
+    activities_at_capacity = activity_repository.select_activities_with_no_spaces()
+    total_activities_at_capacity = len(activities_at_capacity)
+
+    return render_template('/classes/index.html' , title = 'Gym Classes' , off_peak_activities = off_peak_activities , total_off_peak_activities = total_off_peak_activities ,  total_number_activities = total_number_activities ,  activities_at_capacity = activities_at_capacity , total_activities_at_capacity = total_activities_at_capacity ,  activities = activities)
 
 # Function to show activity information using member id
 @activities_blueprint.route("/classes/<id>", methods=['GET'])

@@ -7,6 +7,12 @@
 <p>This page shows all available classes at Amazing Gym. From here, you can view class information, edit classes and delete classes.</p>
 <p>Please visit the <a href="/classes/new_class">Add a New Class</a> page to add a new type of class to the system.</p>
 
+{% if total_off_peak_activities !=0 %}
+
+<h2>Classes During Peak Hours</h2>
+
+<p>Only premium members may be booked into these classes.</p>
+
 <table>
     <thead>
         <tr>
@@ -38,5 +44,84 @@
     {% endfor %}
 </tbody>
 </table>
+
+{% endif %}
+
+{% if total_off_peak_activities !=0 %}
+
+<h2>Classes During Off-Peak Hours</h2>
+<p>Standard and premium members can be booked into classes during off-peak hours.</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type of Activity</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Capacity</th>
+            <th colspan="3"><strong>Class Management</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for activity in off_peak_activities %}
+    <tr>
+        <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
+        <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+        <td>{{activity.time}}</td>
+        <td>{{activity.date}}</td>
+        <td>{{activity.capacity}}</td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+        <td>
+            <form action="/classes/{{activity.id}}/delete" method="POST">
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+                
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endif %}
+
+{% if total_activities_at_capacity >0 %}
+
+<h2>Classes at Capacity</h2>
+<p>The following classes are fully subscribed and are not available for bookings.</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type of Activity</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Capacity</th>
+            <th colspan="3"><strong>Class Management</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for activity in activities_at_capacity %}
+    <tr>
+        <td><a href="/classes/{{activity.id}}">{{activity.id}}</a></td>
+        <td><a href="/classes/{{activity.id}}">{{activity.type}}</a></td>
+        <td>{{activity.time}}</td>
+        <td>{{activity.date}}</td>
+        <td>{{activity.capacity}}</td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Class</a></button></td>
+        <td><button class="index-button"><a href="/classes/{{activity.id}}/edit_class"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Class</a></button></td>
+        <td>
+            <form action="/classes/{{activity.id}}/delete" method="POST">
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete This Class</button>
+                
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endif %}
+
 
 {% endblock %}

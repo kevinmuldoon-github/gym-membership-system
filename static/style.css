@@ -80,8 +80,8 @@ header {
 }
 
 .box {
+    flex: 33.33%;
     text-transform: uppercase;
-
     background-color: rgb(245, 245, 245);
     border-radius: 10px;
     margin-bottom:15px;

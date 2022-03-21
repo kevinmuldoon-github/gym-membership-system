@@ -64,12 +64,13 @@ def new_booking_page():
     off_peak_activities = activity_repository.select_off_peak_activities_with_spaces()
     activities = activity_repository.select_activities_with_spaces()
 
-    number_off_peak_activities = len(activity_repository.select_off_peak_activities_with_spaces())
+    total_off_peak_activities = len(activity_repository.select_off_peak_activities_with_spaces())
     total_number_activities = len(activity_repository.select_activities_with_spaces())
 
     activities_at_capacity = activity_repository.select_activities_with_no_spaces()
+    total_activities_at_capacity = len(activities_at_capacity)
 
-    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , number_off_peak_activities = number_off_peak_activities , total_number_activities = total_number_activities , number_standard_active_members = number_standard_active_members , number_premium_active_members = number_premium_active_members ,  off_peak_activities = off_peak_activities , activities_at_capacity = activities_at_capacity,  activities = activities)
+    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , total_off_peak_activities = total_off_peak_activities , total_number_activities = total_number_activities , number_standard_active_members = number_standard_active_members , number_premium_active_members = number_premium_active_members ,  off_peak_activities = off_peak_activities , activities_at_capacity = activities_at_capacity,  total_activities_at_capacity = total_activities_at_capacity , activities = activities)
 
 # Function to create a new booking from a form submission
 @bookings_blueprint.route("/bookings" , methods = ['POST'])

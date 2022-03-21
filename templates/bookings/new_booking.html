@@ -18,7 +18,7 @@
     <div class="booking-box">
 
     <form action="/bookings" method="post" class="submission">
-        {% if number_standard_active_members != 0 and number_off_peak_activities != 0 %}
+        {% if number_standard_active_members != 0 and total_off_peak_activities != 0 %}
         <div>
             <label for="member_id">Member:</label>
             <select id="member_id" name="member_id">
@@ -44,7 +44,7 @@
 
     <input type="submit" value="Create Booking" />
     
-    {% elif number_standard_active_members == 0 and number_off_peak_activities == 0 %}
+    {% elif number_standard_active_members == 0 and total_off_peak_activities == 0 %}
         No members currently have a standard membership and all off-peak classes are full.
 
     {% elif number_standard_active_members == 0 %}
@@ -95,7 +95,7 @@
         </div>
     </div>
         
-        {% if number_off_peak_activities == 0 or total_number_activities ==0 %}
+        {% if total_activities_at_capacity >0 %}
 
         <h2>Classes at Capacity</h2>
         <p>The following classes are fully subscribed and are not available for bookings.</p>
