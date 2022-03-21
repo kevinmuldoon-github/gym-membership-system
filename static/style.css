@@ -126,6 +126,18 @@ th, td {
     text-align:center
 }
 
+tbody th:hover , td:hover {
+    background-color: lightskyblue;
+}
+
+tbody th:hover a , td:hover a {
+    color:white;
+} 
+
+tbody th:hover a:hover , td:hover a:hover{
+color:red;
+}
+
 th a, td a {text-decoration: none;}
 
 tbody tr:nth-child(odd) {

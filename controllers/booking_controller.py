@@ -50,8 +50,9 @@ def edit_booking(id):
 @bookings_blueprint.route("/bookings/new_booking", methods = ['GET'])
 def new_booking_page():
     members = member_repository.select_active_members()
+    off_peak_members = member_repository.select_off_peak_activities()
     activities = activity_repository.select_all()
-    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , activities = activities)
+    return render_template("bookings/new_booking.html" , title = "Book a Member Into a Class", members = members , off_peak_members = off_peak_members , activities = activities)
 
 # Function to create a new booking from a form submission
 @bookings_blueprint.route("/bookings" , methods = ['POST'])

@@ -30,6 +30,22 @@ def select(id):
         activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
     return activity
 
+# # Function to find off-peak activities
+def select_off_peak_activities():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for result in results:
+
+        time_list = result['date'].split(":")
+        time_number = time_list[0]
+
+        if 10 <= time_number <= 16:
+            activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
+            activities.append(activity)
+    return activities
+
 
 # Function to select all activities
 def select_all():
