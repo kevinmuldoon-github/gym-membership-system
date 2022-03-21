@@ -19,16 +19,18 @@
     <div class="booking-box">
 
     <form action="/bookings" method="post" class="submission">
-
+        {% if number_standard_active_members != 0 %}
         <div>
             <label for="member_id">Member:</label>
             <select id="member_id" name="member_id">
-                {% for member in members %}
-                    {% if member.premium == False %}
-                        <option value="{{member.id}}">{{member.name}} (Standard)</option>
-                    {% endif %}
-                
-                {% endfor %}
+                {% if number_standard_active_members != 0 %}
+                    {% for member in members %}
+                        {% if member.premium == False %}
+                            <option value="{{member.id}}">{{member.name}} (Standard)</option>
+                        {% endif %}
+                    
+                    {% endfor %}
+                {% endif %}
             </select>
         </div>
 
@@ -42,22 +44,26 @@
     </div>
 
     <input type="submit" value="Create Booking" />
+    {% else %}
+    No members currently have a standard membership.
+    {% endif %}
     </form>
+
     </div>
 
+    
     <div class="booking-box">
 
         <form action="/bookings" method="post" class="submission">
-    
+            {% if number_premium_active_members != 0 %}
         <div>
             <label for="member_id">Member:</label>
             <select id="member_id" name="member_id">
-                {% for member in members %}
-                    {% if member.premium == True %}
-                        <option value="{{member.id}}">{{member.name}} (Premium)</option>
-                    {% endif %}
-                
-                {% endfor %}
+                    {% for member in members %}
+                        {% if member.premium == True %}
+                            <option value="{{member.id}}">{{member.name}} (Premium)</option>
+                        {% endif %}
+                    {% endfor %}
             </select>
         </div>
     
@@ -71,8 +77,13 @@
         </div>
     
         <input type="submit" value="Create Booking" />
+        {% else %}
+        No members currently have a premium membership.
+        {% endif %}
         </form>
+
         </div>
+        
 
 </div>
 
