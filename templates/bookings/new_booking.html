@@ -4,31 +4,76 @@
 <h1>Book a Member Into a Class</h1>
 
 <p>Members can be booked into classes using the form below. Deactivated members are not available for selection. </p>
-<p>Standard members can only book a class during off-peak hours (10am to 4pm).</p>
 
 
-<form action="/bookings" method="post" class="submission">
+<div class="booking-grid">
+    <div class="booking-box">
+        <h2>Book Class for Standard Member</h2>
+        <p>Standard members can only book a class during off-peak hours (10am to 4pm).</p>
+    </div>
+    <div class="booking-box">
+        <h2>Book Class for Premium Member</h2>
+        <p>Premium members are permitted to book any class at the gym.</p>
+    </div>
 
-<div>
-    <label for="member_id">Select Member:</label>
-    <select id="member_id" name="member_id">
-        {% for member in members %}
-        <option value="{{member.id}}">{{member.name}}</option>
-        {% endfor %}
-    </select>
+    <div class="booking-box">
+
+    <form action="/bookings" method="post" class="submission">
+
+        <div>
+            <label for="member_id">Member:</label>
+            <select id="member_id" name="member_id">
+                {% for member in members %}
+                    {% if member.premium == False %}
+                        <option value="{{member.id}}">{{member.name}} (Standard)</option>
+                    {% endif %}
+                
+                {% endfor %}
+            </select>
+        </div>
+
+    <div>
+        <label for="activity_id">Class:</label>
+        <select id="activity_id" name="activity_id">
+                {% for activity in off_peak_activities %}
+                    <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
+                {% endfor %}
+        </select>
+    </div>
+
+    <input type="submit" value="Create Booking" />
+    </form>
+    </div>
+
+    <div class="booking-box">
+
+        <form action="/bookings" method="post" class="submission">
+    
+        <div>
+            <label for="member_id">Member:</label>
+            <select id="member_id" name="member_id">
+                {% for member in members %}
+                    {% if member.premium == True %}
+                        <option value="{{member.id}}">{{member.name}} (Premium)</option>
+                    {% endif %}
+                
+                {% endfor %}
+            </select>
+        </div>
+    
+        <div>
+            <label for="activity_id">Class:</label>
+            <select id="activity_id" name="activity_id">
+                    {% for activity in activities %}
+                    <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
+                    {% endfor %}
+            </select>
+        </div>
+    
+        <input type="submit" value="Create Booking" />
+        </form>
+        </div>
+
 </div>
-
-<div>
-    <label for="activity_id">Select Class:</label>
-    <select id="activity_id" name="activity_id">
-        {% for activity in activities %}
-        <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
-        {% endfor %}
-    </select>
-</div>
-
-<input type="submit" value="Create Booking" />
-</form>
-
 
 {% endblock %}

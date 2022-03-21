@@ -33,10 +33,3 @@ booking_repository.create_booking(booking_3)
 # my_date = "2022-12-25"
 # date = date_repository.convert_date(my_date) # Convert date format
 # print(date)
-
-time = "09:00"
-
-time_list = time.split(":")
-time_number = time_list[0]
-
-print(time_number)

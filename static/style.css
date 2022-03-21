@@ -188,6 +188,19 @@ input[type=submit]:hover {
 
 /* View, Edit and Delete Buttons */
 
+.booking-grid{
+    display:flex;
+    flex-wrap:wrap;
+
+}
+
+.booking-box{
+    margin:15px;
+    width:45%;
+}
+
+/* View, Edit and Delete Buttons */
+
 .index-button, .index-button a {
 background-color: transparent;
 color:blue;

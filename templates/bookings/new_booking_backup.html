@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Book a Member Into a Class</h1>
+
+<p>Members can be booked into classes using the form below. Deactivated members are not available for selection. </p>
+<p>Standard members can only book a class during off-peak hours (10am to 4pm).</p>
+
+<div class="booking-grid">
+
+    <div>
+    <form action="/bookings" method="post" class="submission">
+
+    <div>
+        <label for="member_id">Select Member:</label>
+        <select id="member_id" name="member_id">
+            {% for member in members %}
+            <option value="{{member.id}}">{{member.name}}
+                {% if member.premium == False %}
+                    (Standard Member)
+                    {% set premium_member = False %}
+                {% else %}
+                    (Premium Member)
+                    {% set premium_member = True %}
+                {% endif %}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="activity_id">Select Class:</label>
+        <select id="activity_id" name="activity_id">
+
+            {% if premium_member == False %}
+                {% for activity in off_peak_activities %}
+                    <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
+                {% endfor %}
+            {% else %}
+                {% for activity in activities %}
+                <option value="{{activity.id}}">{{activity.type}} at {{activity.time}} on {{activity.date}}</option>
+                {% endfor %}
+            {% endif %}
+
+
+        </select>
+    </div>
+
+    <input type="submit" value="Create Booking" />
+    </form>
+    </div>
+
+</div>
+
+{% endblock %}

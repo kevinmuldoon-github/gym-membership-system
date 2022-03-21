@@ -38,10 +38,9 @@ def select_off_peak_activities():
 
     for result in results:
 
-        time_list = result['date'].split(":")
-        time_number = time_list[0]
-
-        if 10 <= time_number <= 16:
+        time_list = result['time'].split(":")
+        time_number = int(time_list[0])
+        if time_number >10 and time_number < 16:
             activity = Activity (result['type'] , result['date'] , result['time'] , result['id'])
             activities.append(activity)
     return activities
