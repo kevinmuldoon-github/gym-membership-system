@@ -32,11 +32,19 @@
 
 <form action="/bookings/{{booking.id}}/edit" method="post" class="submission">
 
+    {% if premium_class ==True %}
+    <p>As this class is on at peak hours, this class is only available to premium gym members.</p>
+
+    {% else %}
+        <p>Standard and premium members can be booked into this class as it is on during off-peak hours.</p>
+
+    {% endif %}
+
     <div>
         <label for="member_id">Select Member:</label>
         <select id="member_id" name="member_id">
             {% for row in members %}
-                {% if member.premium == False %}
+                {% if row.premium == False %}
                     <option value="{{row.id}}" {% if member.id == row.id %}selected{% endif %}>
                     {{row.name}}  (Standard)</option>
                 {% else %}

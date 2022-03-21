@@ -30,7 +30,8 @@ def show_edit_booking_page(id):
     premium_class = False
     booking = booking_repository.select(id) # Find booking information
     activity = activity_repository.select(booking.activity)
-    activity_time_string = activity.split(":")
+    activity_time = activity.time
+    activity_time_string = activity_time.split(":")
     time_number = int(activity_time_string[0])
     if time_number >10 and time_number < 16:
         members = member_repository.select_active_members()
