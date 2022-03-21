@@ -11,8 +11,11 @@ members_blueprint = Blueprint("members", __name__)
 # Main members page
 @members_blueprint.route("/members")
 def members():
-    members = member_repository.select_all()
-    return render_template('/members/index.html' , title = 'Gym Members' , members = members)
+    members = member_repository.select_active_members()
+    number_active_members = len(members)
+    deactivated_members = member_repository.select_deactived_members()
+    number_inactive_members = len(deactivated_members)
+    return render_template('/members/index.html' , title = 'Gym Members' , members = members , deactivated_members = deactivated_members ,  number_active_members =  number_active_members , number_inactive_members = number_inactive_members)
 
 # Function to show member information using member id
 @members_blueprint.route("/members/<id>", methods=['GET'])

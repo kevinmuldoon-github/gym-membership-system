@@ -6,6 +6,9 @@
 <p>This page shows all members of Amazing Gym. From here, you can view member information, edit members and delete members.</p>
 <p>Please visit the <a href="/members/new_member">Add a New Member</a> page to add a new gym member to the system.</p>
 
+{% if number_active_members != 0 %}
+
+<h2>Active Members</h2>
 <table>
     <thead>
         <tr>
@@ -47,5 +50,53 @@
     {% endfor %}
     </tbody>
 </table>
+
+{% endif %}
+
+{% if number_inactive_members != 0 %}
+<h2>Deactivated Members</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Membership Level</th>
+            <th>Account Status</th>
+            <th colspan="3"><strong>Member Management</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for member in deactivated_members %}
+    <tr>
+        <td><a href="/members/{{member.id}}">{{member.id}}</a></td>
+        <td><a href="/members/{{member.id}}">{{member.name}}</a></td>
+        <td>
+            {% if member.premium == True %}
+                Premium
+            {% else %}
+                Standard
+            {% endif %}
+        </td>
+        <td>
+            {% if member.deactivated == True %}
+            Decactivated
+            {% else %}
+            Active
+            {% endif %}
+        </td>
+        <td><button class="index-button"><a href="/members/{{member.id}}"><i class="fa-solid fa-circle-info"></i> &nbsp;View Member</a></button></td>
+        <td><button class="index-button"><a href="/members/{{member.id}}/edit_member"><i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit Member</a></button></td>
+        <td>
+            <form action="/members/{{member.id}}/delete" method="POST">
+                <button class="index-button"><i class="fa-solid fa-trash"></i> &nbsp;Delete Member</button>
+                
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
 
 {% endblock %}
