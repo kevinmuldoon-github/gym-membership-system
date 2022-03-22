@@ -69,6 +69,7 @@ header {
     border-radius: 25px;
     color:black;
     font-size:18px;
+    min-height: 100vh;
 }
 
 /* Home Page Navigation Grid */
@@ -230,6 +231,7 @@ footer {
     background-color: #36c;
     padding:15px;
     text-align: center;
+    
 }
 
 footer a {
