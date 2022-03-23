@@ -18,9 +18,14 @@ def bookings():
 # Function to show booking information using booking id
 @bookings_blueprint.route("/bookings/<id>", methods=['GET'])
 def show_booking(id):
+    activity = None
+    member = None
     booking = booking_repository.select(id)
-    activity = activity_repository.select(booking.activity)
-    member = member_repository.select(booking.member)
+    if booking is None:
+            return redirect ('/404') # if booking does not exist, redirect to 404 page
+    else:
+        activity = activity_repository.select(booking.activity)
+        member = member_repository.select(booking.member)
     return render_template('/bookings/show_booking.html' , title = 'Booking Information' , booking = booking, activity = activity, member = member)
 
 

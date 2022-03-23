@@ -24,10 +24,11 @@ def select(id):
     activity = None
     sql = "SELECT * FROM activities WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    result = run_sql(sql, values)
 
-    if result is not None:
-        activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'],  result['id'])
+    if result:
+        activity_from_db = result[0]
+        activity = Activity(activity_from_db['type'] , activity_from_db['date'] , activity_from_db['time'], activity_from_db['capacity'] , activity_from_db['id'])
     return activity
 
 # Function to find off-peak activities with spaces

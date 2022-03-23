@@ -30,10 +30,11 @@ def select(id):
     booking = None
     sql = "SELECT * FROM bookings WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    result = run_sql(sql, values)
 
-    if result is not None:
-        booking = Booking(result['member_id'], result['activity_id'], result['id'])
+    if result:
+        booking_from_db = result[0]
+        booking = Booking(booking_from_db['member_id'], booking_from_db['activity_id'], booking_from_db['id'])
     return booking
 
 # Function to select all bookings

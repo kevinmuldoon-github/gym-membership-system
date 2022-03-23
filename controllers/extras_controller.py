@@ -18,6 +18,12 @@ extras_blueprint = Blueprint("extras", __name__)
 def site_map():
     return render_template('site_map.html', title='Sitemap')
 
+@extras_blueprint.route('/404')
+def error_404():
+    return render_template('404.html', title='404 Error')
+
+
+
 @extras_blueprint.route('/what_have_you_done')
 def what_have_you_done():
     return render_template('what_have_you_done.html', title='What Have You Done?')

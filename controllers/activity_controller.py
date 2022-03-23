@@ -25,8 +25,12 @@ def activities():
 @activities_blueprint.route("/classes/<id>", methods=['GET'])
 def show_activity(id):
     activity = activity_repository.select(id)
-    members = activity_repository.find_members_booked_in_class(id)
-    enrolled = len(members)
+
+    if activity is None:
+            return redirect ('/404') # if booking does not exist, redirect to 404 page
+    else:
+        members = activity_repository.find_members_booked_in_class(id)
+        enrolled = len(members)
     return render_template('/classes/show_class.html' , title = 'Class Information' , activity = activity, members = members, enrolled = enrolled)
 
 # Display page and form to edit an activity

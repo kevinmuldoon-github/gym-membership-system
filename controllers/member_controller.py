@@ -20,9 +20,13 @@ def members():
 # Function to show member information using member id
 @members_blueprint.route("/members/<id>", methods=['GET'])
 def show_member(id):
+    activities = None
     member = member_repository.select(id)
-    activities = member_repository.find_activities_for_member(id)
-    number_of_activities = len(activities)
+    if member is None:
+            return redirect ('/404') # if member does not exist, redirect to 404 page
+    else:
+        activities = member_repository.find_activities_for_member(id)
+        number_of_activities = len(activities)
     return render_template('/members/show_member.html' , title = 'Member Information' , member=member, activities = activities, number_of_activities= number_of_activities)
 
 # Display page and form to edit a member's information
