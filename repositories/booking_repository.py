@@ -3,8 +3,6 @@ import pdb
 from db.run_sql import run_sql
 
 from models.booking import Booking
-from models.activity import Activity
-from models.member import Member
 
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository

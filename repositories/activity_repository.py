@@ -2,7 +2,6 @@ from db.run_sql import run_sql
 
 from models.activity import Activity
 from models.member import Member
-from models.booking import Booking
 
 # Function to insert a new activity/class to the gym database
 def create_activity(activity):   
