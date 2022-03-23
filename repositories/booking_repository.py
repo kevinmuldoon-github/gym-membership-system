@@ -51,11 +51,11 @@ def select_all():
 # Function to see if booking exists
 def does_booking_already_exist(member_id, activity_id):
     booking_exists = False
-    sql = "SELECT COUNT(*) FROM bookings WHERE member_id=%s AND activity_id=%s THEN TRUE"
+    sql = "SELECT * FROM bookings WHERE member_id=%s AND activity_id=%s"
     values = [member_id, activity_id]
     result = run_sql(sql, values)
-
-    if result ==0 :
+    
+    if result:
         booking_exists = True
     return booking_exists
 

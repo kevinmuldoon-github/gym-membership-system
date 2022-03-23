@@ -79,13 +79,13 @@ def create_booking():
     member = member_repository.select(member_id)
     activity_id =request.form['activity_id']
     activity = activity_repository.select(activity_id)
-    # does_booking_exist = booking_repository.does_booking_already_exist(member_id, activity_id)
+    does_booking_exist = booking_repository.does_booking_already_exist(member_id, activity_id)
 
-    # if does_booking_exist == True:
-    #     return render_template ('/bookings/double_booking.html') # Redirect user to double booking page
-    # else:
-    booking = Booking(member, activity) # Create booking object
-    booking_repository.create_booking(booking) # Add booking to database
+    if does_booking_exist == True:
+        return render_template ('/bookings/double_booking.html') # Redirect user to double booking page
+    else:
+        booking = Booking(member, activity) # Create booking object
+        booking_repository.create_booking(booking) # Add booking to database
     return redirect ('/bookings') # Redirect user to main booking page
 
 # Function to show double booking error message

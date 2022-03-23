@@ -23,10 +23,11 @@ def select(id):
     member = None
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
-
-    if result is not None:
-        member = Member(result['name'] , result['premium'] , result['deactivated'], result['id'])
+    result = run_sql(sql, values)
+    
+    if result:
+        member_from_db = result[0]
+        member = Member(member_from_db['name'] , member_from_db['premium'] , member_from_db['deactivated'], member_from_db['id'])
     return member
 
 # Function to select all members. Useful for showing all members in forms etc
