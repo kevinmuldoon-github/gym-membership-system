@@ -1,8 +1,13 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div style="text-align: center;">
 <h1>Booking Cannot Be Made</h1>
-<p>This booking could not be made as the member is already booked into the class.</p>
-<p>Please return to the <a href="/bookings/new_booking">Create a Booking</a> page and try again.</a></p>
+<p style="justify-content: left;">This booking could not be made as the member is already booked into the class.</p>
+<p style="justify-content: left;">Please return to the <a href="/bookings/new_booking">Create a Booking</a> page and try again</a>.</p>
+
+    <img src="../static/images/spiderman-pointing.jpeg" alt="Booking Already Exists">
+
+</div>
 
 {% endblock %}
