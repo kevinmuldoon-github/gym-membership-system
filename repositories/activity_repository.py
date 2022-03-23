@@ -40,9 +40,9 @@ def select_off_peak_activities_with_spaces():
         members = find_members_booked_in_class(result['id'])
         enrolled = len(members)
         capacity = result['capacity']
-        time_list = result['time'].split(":")
+        time_list = result['time'].split(":")  
         time_number = int(time_list[0])
-        if time_number >=10 and time_number < 16 and enrolled < capacity:
+        if time_number >=10 and time_number < 16 and enrolled < capacity: # Verify if activity is within off-peak hours
             activity = Activity (result['type'] , result['date'] , result['time'] , result['capacity'] , result['id'])
             activities.append(activity)
     return activities
