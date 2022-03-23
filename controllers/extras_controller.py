@@ -16,7 +16,19 @@ extras_blueprint = Blueprint("extras", __name__)
 
 @extras_blueprint.route('/site-map')
 def site_map():
-    return render_template('site_map.html', title='Sitemap')
+    members = member_repository.select_all()
+    bookings = booking_repository.select_all()
+    off_peak_activities = activity_repository.select_off_peak_activities_with_spaces()
+    activities = activity_repository.select_peak_hour_activities_with_spaces()
+
+
+    activities_at_capacity = activity_repository.select_activities_with_no_spaces()
+    total_activities_at_capacity = len(activities_at_capacity)
+    total_off_peak_activities = len(activity_repository.select_off_peak_activities_with_spaces())
+    total_number_activities = len(activity_repository.select_activities_with_spaces())
+
+
+    return render_template('site_map.html', title='Sitemap' , members = members , activities = activities , activities_at_capacity = activities_at_capacity , total_activities_at_capacity = total_activities_at_capacity ,  total_off_peak_activities  = total_off_peak_activities  , total_number_activities = total_number_activities ,off_peak_activities = off_peak_activities ,  bookings = bookings)
 
 @extras_blueprint.route('/404')
 def error_404():
