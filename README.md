@@ -3,17 +3,43 @@
 This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CSS.
 
 <table>
+
   <tr>
     <td><strong>Home Page</strong></td>
-     <td><strong>Members Page</strong></td>
-     <td><strong>Classes Page</strong></td>
+     <td><strong>Site Map</strong></td>
+     <td><strong>Duplicate Booking Message</strong></td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" width="300" /></td>
-    <td><img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" width="300" /></td>
-    <td><img src="https://user-images.githubusercontent.com/100124261/166435916-d331e959-e2e2-42a1-b23d-9c3234882774.png" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" alt="The Application Home Page" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436683-8fface28-aabb-4946-a11d-0b237dbd3395.png" alt="Site Map" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436946-bbf01bab-1a74-423a-adb3-208ec5e38ac3.png" alt="Message to User When Booking Cannot Be Made" width="300" /></td>
   </tr>
+  
+    <tr>
+    <td><strong>Members Page</strong></td>
+     <td><strong>Classes Page</strong></td>
+     <td><strong>Bookings Page</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" alt="The Members Page" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166435916-d331e959-e2e2-42a1-b23d-9c3234882774.png" alt="The Classes Page" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436247-3a0e91e3-d7f1-46e3-9471-86cce8e3b54c.png" alt="The Classes Page" width="300" /></td>
+  </tr>
+  
+      <tr>
+    <td><strong>Add a Member</strong></td>
+     <td><strong>Add a Class</strong></td>
+     <td><strong>Add a Booking</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436482-41796d68-c991-433c-8591-12eca41e0b18.png" alt="Add a Member" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436529-950450a6-7ba8-46f6-b186-6a5db2ede17c.png" alt="Add a Class" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436558-2ac18394-446d-4017-b753-fc6edb24e031.png" alt="Add a Booking width="300" /></td>
+  </tr>
+  
  </table>
+
+
 
 
 ## Project Brief
