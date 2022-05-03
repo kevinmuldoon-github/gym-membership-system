@@ -9,10 +9,11 @@ This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CS
      <td><strong>Site Map</strong></td>
      <td><strong>Duplicate Booking Message</strong></td>
   </tr>
+
   
   <tr>
     <td><img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" alt="The Application Home Page" width="300" /></td>
-    <td><img src="https://user-images.githubusercontent.com/100124261/166436683-8fface28-aabb-4946-a11d-0b237dbd3395.png" alt="Site Map" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166437722-617c31e8-adca-4e80-b52a-913a2cce2e45.png" alt="Site Map" width="300" /></td>
     <td><img src="https://user-images.githubusercontent.com/100124261/166436946-bbf01bab-1a74-423a-adb3-208ec5e38ac3.png" alt="Message to User When Booking Cannot Be Made" width="300" /></td>
   </tr>
   
