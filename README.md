@@ -23,7 +23,7 @@ This application can be run by executing the the app.py file, which can be found
 
 A seed file can be found in the db directory. The seed file can be run by entering the following command from the root directory.
 
-psql -d amazing_gym -f db/amazing_gym.sql
+- psql -d amazing_gym -f db/amazing_gym.sql
 
 The database can be managed from the command line using the following command (where amazing_gym is the name of the database)
 
