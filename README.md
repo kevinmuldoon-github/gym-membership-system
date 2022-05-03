@@ -2,14 +2,8 @@
 
 This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CSS.
 
-<div style="display:flex;flex-wrap:wrap;flex-direction: row;">
-
- <div><img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" width="300" /></div>
-  <div>
-    <img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" width="300" />
-  </div>
-
-</div>
+<img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" width="300" />
+<img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" width="300" />
 
 ## Project Brief
 
