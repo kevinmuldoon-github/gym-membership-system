@@ -15,6 +15,20 @@ The membership system was created using tables and classes for:
 - Activities (Referred to as classes on the front-end)
 - Bookings
 
+### Installation & Management
+
+This application can be run by executing the the app.py file, which can be found in the root directory
+
+- python3 app.py
+
+A seed file can be found in the db directory. The seed file can be run by entering the following command from the root directory.
+
+psql -d amazing_gym -f db/amazing_gym.sql
+
+The database can be managed from the command line using the following command (where amazing_gym is the name of the database)
+
+- psql -d amazing_gym
+
 ### Members
 
 Members can be assigned a standard or premium membership. Standard members are not permitted to book an activity during peak hours, whilst premium members can book any activity.
