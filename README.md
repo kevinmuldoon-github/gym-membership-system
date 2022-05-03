@@ -35,7 +35,7 @@ This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CS
   <tr>
     <td><img src="https://user-images.githubusercontent.com/100124261/166436482-41796d68-c991-433c-8591-12eca41e0b18.png" alt="Add a Member" width="300" /></td>
     <td><img src="https://user-images.githubusercontent.com/100124261/166436529-950450a6-7ba8-46f6-b186-6a5db2ede17c.png" alt="Add a Class" width="300" /></td>
-    <td><img src="https://user-images.githubusercontent.com/100124261/166436558-2ac18394-446d-4017-b753-fc6edb24e031.png" alt="Add a Booking width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166436558-2ac18394-446d-4017-b753-fc6edb24e031.png" alt="Add a Booking" width="300" /></td>
   </tr>
   
  </table>
