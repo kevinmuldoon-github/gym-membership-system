@@ -2,10 +2,11 @@
 
 This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CSS.
 
+![amazing-gym-home-page](https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png)
+
 ## Project Brief
 
 > A local gym has asked you to build a piece of software to help them to manage memberships, and register members for classes.
-
 
 ## Amazing Gym Membership System
 
