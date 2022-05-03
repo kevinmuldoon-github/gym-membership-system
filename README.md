@@ -2,8 +2,19 @@
 
 This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CSS.
 
-<img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" width="300" />
-<img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" width="300" />
+<table>
+  <tr>
+    <td><strong>Home Page</strong></td>
+     <td><strong>Members Page</strong></td>
+     <td><strong>Classes Page</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166433653-0c45f78d-bcde-4ff9-8c8c-e89468d38126.png" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166434416-40277fab-be89-40e7-a5fb-de1c237a6cc0.png" width="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/100124261/166435916-d331e959-e2e2-42a1-b23d-9c3234882774.png" width="300" /></td>
+  </tr>
+ </table>
+
 
 ## Project Brief
 
