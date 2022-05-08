@@ -2,6 +2,8 @@
 
 This application was created using Python, PostgreSQL, Flask, Jinja, HTML and CSS.
 
+I was tasked with building this application within five days using the tech stack referenced above.
+
 <table>
   
   <tr>
